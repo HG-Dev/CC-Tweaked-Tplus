@@ -7,6 +7,8 @@
 package dan200.computercraft.client;
 
 import dan200.computercraft.ComputerCraft;
+import dan200.computercraft.client.entity.EntityEyebotTurtle;
+import dan200.computercraft.client.render.RenderEyebotTurtle;
 import dan200.computercraft.client.render.TurtleModelLoader;
 import dan200.computercraft.shared.media.items.ItemDiskLegacy;
 import dan200.computercraft.shared.pocket.items.ItemPocketComputer;
@@ -17,6 +19,7 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.item.Item;
@@ -32,6 +35,7 @@ import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 import javax.annotation.Nonnull;
 
@@ -65,6 +69,7 @@ public final class ClientRegistry
     public static void registerModels( ModelRegistryEvent event )
     {
         ModelLoaderRegistry.registerLoader( TurtleModelLoader.INSTANCE );
+        RenderingRegistry.registerEntityRenderingHandler(EntityEyebotTurtle.class, RenderEyebotTurtle.FACTORY);
 
         // Register item models
         registerUniversalItemModel( ComputerCraft.Items.computer, "computer" );
@@ -95,6 +100,9 @@ public final class ClientRegistry
         registerUniversalItemModel( ComputerCraft.Items.turtle, "turtle" );
         registerUniversalItemModel( ComputerCraft.Items.turtleExpanded, "turtle" );
         registerUniversalItemModel( ComputerCraft.Items.turtleAdvanced, "turtle_advanced" );
+
+        //TODO: Replace? normal turtles with entity turtle
+
     }
 
     @SubscribeEvent
