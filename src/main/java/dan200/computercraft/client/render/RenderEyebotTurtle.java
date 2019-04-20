@@ -1,5 +1,6 @@
 package dan200.computercraft.client.render;
 
+import dan200.computercraft.ComputerCraft;
 import dan200.computercraft.client.entity.EntityEyebotTurtle;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -40,6 +41,7 @@ public class RenderEyebotTurtle extends RenderLiving<EntityEyebotTurtle>
 
         @Override
         public Render<? super EntityEyebotTurtle> createRenderFor(RenderManager manager) {
+            ComputerCraft.log.warn( "Creating render in RenderEyebotTurtle factory");
             return new RenderEyebotTurtle(manager);
         }
     }

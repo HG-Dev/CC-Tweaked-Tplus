@@ -1,14 +1,16 @@
 package dan200.computercraft.client.entity;
 
+import dan200.computercraft.ComputerCraft;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.world.World;
 
-public class EntityEyebotTurtle extends EntityBlaze {
+public class EntityEyebotTurtle extends EntityBlaze
+{
 
     public EntityEyebotTurtle(World worldIn) {
         super(worldIn);
-        this.experienceValue = 1000;
+        ComputerCraft.log.warn( "Initting EntityEyebotTurtle");
     }
 
 }
